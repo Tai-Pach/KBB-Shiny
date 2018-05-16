@@ -56,6 +56,21 @@ shinyServer(function(input, output, session) {
     #   })
     return(chart)
   })
+  output$reviews <- renderHighchart({
+    reviews_ <- hchart(density(na.omit(df$consumer_review)), type = "area", color = "#B71C1C", name = "Consumer Review") %>% hc_add_series(density(na.omit(df$kbb_expert_review)), area = TRUE, name = "KBB Expert Review") %>% hc_add_theme(hc_theme_db())
+    return(reviews_)
+  })
+  output$miles <- renderHighchart({
+    miles_ <- hchart(df$mileage, name = "Mileage") %>% hc_add_theme(hc_theme_db())
+    return(miles_)
+  })
+  output$prices <- renderHighchart({
+    prices_ <- hchart(df$price, name = "Price") %>% hc_add_theme(hc_theme_db())
+    return(prices_)
+  })
   
-
+  output$years <- renderHighchart({
+    years_ <- hchart(df$year, name = "Price") %>% hc_add_theme(hc_theme_db())
+    return(years_)
+  })
 })

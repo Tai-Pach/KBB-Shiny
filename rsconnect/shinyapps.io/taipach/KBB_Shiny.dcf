@@ -1,0 +1,12 @@
+name: KBB_Shiny
+title: KBB_Shiny
+username:
+account: taipach
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 343575
+bundleId: 1377351
+url: https://taipach.shinyapps.io/KBB_Shiny/
+when: 1526496447.94127
+asMultiple: FALSE
+asStatic: FALSE

@@ -8,7 +8,8 @@ library(dplyr)
 library(ggmap)
 library(DT)
 
-df <- fread('C:/Users/pache_000/Desktop/KBB_Shiny/KBB_Shiny/data/kbb.csv')
+df <- fread(file = "./data/kbb.csv", header = T)
+
 brand_count = df %>% select(., brand) %>% group_by(., brand) %>% summarise(., count = n())
 
 #map <- leaflet(df$location) %>% addProviderTiles("Hydda.Full") %>% addMarkers()

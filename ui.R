@@ -7,9 +7,14 @@ shinyUI(dashboardPage(
   
   dashboardSidebar(sidebarMenu(
     menuItem(tabName = "home", text = "Home", icon = icon("home")),
-    menuItem(tabName = "table", text = "Used Car Dataset", icon = icon("car")),
+    menuItem(tabName = "table", text = "Used Car Dataset", icon = icon("table")),
     menuItem(tabName = "tree", text = "Brand Breakdown", icon = icon("sitemap")),
-    menuItem(tabName = "analyses", text= "Analyses", icon = icon("signal"))
+    menuItem(tabName = "Analyses", text= "Analyses", icon = icon("chart line"),
+             menuItem(tabName = "analyses", text= "Price vs Mileage", icon = icon("chart line")),
+             menuItem(tabName = "review", text = "Customer vs Expert", icon = icon("pencil alternate")),
+             menuItem(tabName = "mile", text = "Mileage Distribution", icon = icon("chart area")),
+             menuItem(tabName = "price", text = "Price Distribution", icon = icon("chart area")),
+             menuItem(tabName = "year", text = "Year Distribution", icon = icon("chart area")))
   )),
   dashboardBody(
     titlePanel("Web Scraping Project"),
@@ -31,14 +36,22 @@ shinyUI(dashboardPage(
       tabItem(tabName = "tree", fluidRow(highchartOutput('tree_'))
               ),
       tabItem(tabName = "analyses", fluidRow(highchartOutput('mile_price'))
-            )
+            ),
+      tabItem(tabName = "review", fluidRow(highchartOutput('reviews'))
+              ),
+      tabItem(tabName = "mile", fluidRow(highchartOutput('miles'))
+      ),
+      tabItem(tabName = "price", fluidRow(highchartOutput('prices'))
+      ),
+      tabItem(tabName = "year", fluidRow(highchartOutput('years'))
+      )
     )
 
     
   ),
   
   
-  theme = "spacelab")
+  theme = "cyborg")
 )
 
 # #fluidRow(
